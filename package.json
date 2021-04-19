@@ -27,6 +27,13 @@
     ]
   },
   "author": "hi!dong",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongggcom/wangeditor-for-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dongggcom/wangeditor-for-react/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.13.14",
