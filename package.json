@@ -2,9 +2,10 @@
   "name": "wangeditor-for-react",
   "version": "1.0.0",
   "description": "Wangeditor component for React.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel es6 -d lib"
   },
   "keywords": [
     "React",
@@ -28,6 +29,12 @@
   "author": "hi!dong",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.13.13",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-angular": "^12.0.1",
     "eslint": "^7.23.0",
