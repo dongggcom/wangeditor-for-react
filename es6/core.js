@@ -1,14 +1,17 @@
 /*
  * @Author: dongmin
- * @LastEditors: dongmin
+ * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-04-02 19:38:12
+ * @LastEditTime: 2021-04-27 19:10:26
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
 import createId from './utils/unique-id';
 import { isObject, isString } from './utils/isType';
 import { isEqualString } from './utils/helper';
+import { replaceHTMLImgBlobURL } from './utils/htmlRnder';
+import ImgFile from './imgFile'
+
 
 export default class ReactWEditor extends React.PureComponent {
   // #Private
@@ -21,6 +24,8 @@ export default class ReactWEditor extends React.PureComponent {
   defaultConfig = {
     zIndex: 1,
   };
+
+  imgFile = new ImgFile()
 
   componentDidMount() {
     try {
@@ -107,10 +112,22 @@ export default class ReactWEditor extends React.PureComponent {
     const {
       placeholder,
       onChange,
+      localBlobImg,
     } = this.props;
 
     if (placeholder) this.defaultConfig.placeholder = placeholder
     if (onChange) this.defaultConfig.onchange = onChange
+
+    // 图片替换为本地Blob伪URL
+    if (localBlobImg) {
+      this.defaultConfig.customUploadImg = (resultFiles, insertImgFn) => {
+        resultFiles.forEach((file) => {
+          const url = URL.createObjectURL(file)
+          this.imgFile.saveImgFiles(url, file)
+          insertImgFn(url)
+        })
+      }
+    }
   }
 
   /**
@@ -129,6 +146,16 @@ export default class ReactWEditor extends React.PureComponent {
         console.error(`[ReactWEdtior Error]: ${e}`)
       }
     }
+  }
+
+  /**
+   * 替换 html 中的 img 标签的 src 引用地址
+   * @param {string} html html 文本
+   * @param {function} callback 替换过程中的回调函数
+   * @returns 替换后的 html 文本
+   */
+  replaceHTMLImgBlobURL(html, callback) {
+    return replaceHTMLImgBlobURL(html, this.imgFile.getAllImgFiles(), callback)
   }
 
   render() {
