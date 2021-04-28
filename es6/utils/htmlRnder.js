@@ -2,7 +2,7 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 18:22:43
- * @LastEditTime: 2021-04-27 19:01:05
+ * @LastEditTime: 2021-04-28 09:42:39
  */
 
 // 是否有 html 标签
@@ -43,9 +43,9 @@ export const replaceHTMLImgBlobURL = (content, files = {}, replaceCallback = v =
     return ''
   }
 
-  if (!Object.keys(files).length) {
+  if (!Object.keys(files).length && hasImgTag(content)) {
     console.error('[File Error]: files is empty')
-    return ''
+    return content
   }
 
   if (isHTML(content) && hasImgTag(content)) {
