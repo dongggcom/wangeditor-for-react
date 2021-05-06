@@ -1,8 +1,8 @@
 <!--
  * @Author: dongmin
- * @LastEditors: dongmin
+ * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-04-19 14:33:14
+ * @LastEditTime: 2021-05-06 10:57:36
 -->
 # wangeditor-for-react
 
@@ -17,6 +17,7 @@ npm install wangeditor-for-react
 **受控组件**
 ```jsx
 import ReactWEditor from 'wangeditor-for-react';
+import { Input } from 'antd'
 
 <Input onChange={e => this.setState({ value: e.target.value })} />
 <ReactWEditor

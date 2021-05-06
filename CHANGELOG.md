@@ -1,3 +1,12 @@
+<!--
+ * @Author: donggg
+ * @LastEditors: donggg
+ * @Date: 2021-04-27 19:13:31
+ * @LastEditTime: 2021-05-06 10:43:32
+-->
+## 1.1.1 - 2021/05/06
+- fix: 设置 localBlobImg 修复无图片时的错误提醒
+
 ## 1.0.1 - 2021/04/27
 - feat: 增加Blob本地图片，并在类中提供处理函数 replaceHTMLImgBlobURL
 
