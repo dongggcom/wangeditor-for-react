@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-07 23:09:30
+ * @LastEditTime: 2021-05-07 23:23:26
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -112,11 +112,15 @@ export default class ReactWEditor extends React.PureComponent {
     const {
       placeholder,
       onChange,
+      onFocus,
+      onBlur,
       localBlobImg,
     } = this.props;
 
     if (placeholder) this.defaultConfig.placeholder = placeholder
     if (onChange) this.defaultConfig.onchange = onChange
+    if (onFocus) this.defaultConfig.onfocus = onFocus
+    if (onBlur) this.defaultConfig.onblur = onBlur
 
     // 图片替换为本地Blob伪URL
     if (localBlobImg) {

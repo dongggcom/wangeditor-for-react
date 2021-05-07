@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-06 10:57:36
+ * @LastEditTime: 2021-05-07 23:28:22
 -->
 # wangeditor-for-react
 
@@ -24,7 +24,13 @@ import { Input } from 'antd'
   value={value}
   defaultValue={'<h1>标题</h1>'}
   onChange={(html) => {
-    console.log('html:', html)
+    console.log('onChange html:', html)
+  }}
+  onBlur={(html) => {
+    console.log('onBlur html:', html)
+  }}
+  onFocus={(html) => {
+    console.log('onFocus html:', html)
   }}
 />
 ```
