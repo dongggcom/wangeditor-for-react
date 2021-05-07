@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-07 22:50:31
+ * @LastEditTime: 2021-05-07 23:09:30
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -159,7 +159,8 @@ export default class ReactWEditor extends React.PureComponent {
   }
 
   render() {
-    return <div id={`editor-${this.id}`} />
+    const { style, className } = this.props;
+    return <div style={style} className={className} id={`editor-${this.id}`} />
   }
 
   changeCreatedFlag = flag => this.hasCreated = flag;
