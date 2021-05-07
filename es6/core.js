@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-04-27 19:10:26
+ * @LastEditTime: 2021-05-07 22:50:31
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -78,10 +78,10 @@ export default class ReactWEditor extends React.PureComponent {
 
   // #Private
   create() {
-    const { config, defaultValue } = this.props;
+    const { config, defaultValue, customConfig } = this.props;
     if (this.check()) {
       // 1. 根据 config 属性配置设置
-      this.setConfig(config)
+      this.setConfig(config || customConfig)
 
       // 2. 生成 editor
       this.editor.create();
