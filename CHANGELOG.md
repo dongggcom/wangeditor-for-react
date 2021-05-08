@@ -2,8 +2,13 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-05-06 11:05:06
+ * @LastEditTime: 2021-05-08 09:28:04
 -->
+## 1.1.3 - 2021/05/08
+- fix: 兼容 v3 版本
+- feat: 容器支持内联样式与样式类
+- feat: 追加 onFous 与 onBlur 事件
+
 ## 1.1.2 - 2021/05/06
 - fix: 设置 localBlobImg 修复无图片时的错误提醒
 
