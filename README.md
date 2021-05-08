@@ -2,17 +2,19 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:30:46
+ * @LastEditTime: 2021-05-08 11:46:51
 -->
 # wangeditor-for-react
 
-[wang editor](https://www.wangeditor.com/)
+项目来源：[wangEditor](https://github.com/wangeditor-team/wangEditor/)
 
-**安装**
+## 安装
+
 ```bash
 npm install wangeditor-for-react
 ```
 
+## 使用
 
 **事件监听**
 ```jsx
