@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:15:54
+ * @LastEditTime: 2021-05-08 11:19:25
 -->
 # wangeditor-for-react
 
@@ -68,6 +68,7 @@ import ReactWEditor from 'wangeditor-for-react';
 **配置**
 
 * [配置菜单](https://doc.wangeditor.com/pages/03-%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/)
+* [内容校验](https://doc.wangeditor.com/pages/05-%E5%86%85%E5%AE%B9%E6%A0%A1%E9%AA%8C/)
 * [粘贴过滤](https://doc.wangeditor.com/pages/06-%E7%B2%98%E8%B4%B4%E8%BF%87%E6%BB%A4/)
 * [上传图片](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/)
 * [上传视频](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/)
