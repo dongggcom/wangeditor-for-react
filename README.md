@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-07 23:28:22
+ * @LastEditTime: 2021-05-08 11:03:07
 -->
 # wangeditor-for-react
 
@@ -14,14 +14,13 @@ npm install wangeditor-for-react
 ```
 
 
-**受控组件**
+**事件监听**
 ```jsx
 import ReactWEditor from 'wangeditor-for-react';
 import { Input } from 'antd'
 
 <Input onChange={e => this.setState({ value: e.target.value })} />
 <ReactWEditor
-  value={value}
   defaultValue={'<h1>标题</h1>'}
   onChange={(html) => {
     console.log('onChange html:', html)
@@ -55,3 +54,10 @@ import ReactWEditor from 'wangeditor-for-react';
   }}
 />
 ```
+
+**配置**
+
+* [配置菜单](https://doc.wangeditor.com/pages/03-%E9%85%8D%E7%BD%AE%E8%8F%9C%E5%8D%95/)
+* [粘贴过滤](https://doc.wangeditor.com/pages/06-%E7%B2%98%E8%B4%B4%E8%BF%87%E6%BB%A4/)
+* [上传图片](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/)
+* [上传视频](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/)
