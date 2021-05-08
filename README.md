@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:10:09
+ * @LastEditTime: 2021-05-08 11:15:54
 -->
 # wangeditor-for-react
 
@@ -22,6 +22,16 @@ import { Input } from 'antd'
 <Input onChange={e => this.setState({ value: e.target.value })} />
 <ReactWEditor
   defaultValue={'<h1>标题</h1>'}
+  linkImgCallback={(src,alt,href) => {
+    // 插入网络图片的回调事件
+    console.log('图片 src ', src)
+    console.log('图片文字说明',alt)
+    console.log('跳转链接',href)
+  }}
+  onlineVideoCallback={(video) => {
+    // 插入网络视频的回调事件
+    console.log('插入视频内容', video)
+  }}
   onChange={(html) => {
     console.log('onChange html:', html)
   }}

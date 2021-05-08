@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-07 23:23:26
+ * @LastEditTime: 2021-05-08 11:11:50
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -114,6 +114,8 @@ export default class ReactWEditor extends React.PureComponent {
       onChange,
       onFocus,
       onBlur,
+      linkImgCallback,
+      onlineVideoCallback,
       localBlobImg,
     } = this.props;
 
@@ -121,6 +123,8 @@ export default class ReactWEditor extends React.PureComponent {
     if (onChange) this.defaultConfig.onchange = onChange
     if (onFocus) this.defaultConfig.onfocus = onFocus
     if (onBlur) this.defaultConfig.onblur = onBlur
+    if (linkImgCallback) this.defaultConfig.linkImgCallback = linkImgCallback
+    if (onlineVideoCallback) this.defaultConfig.onlineVideoCallback = onlineVideoCallback
 
     // 图片替换为本地Blob伪URL
     if (localBlobImg) {
