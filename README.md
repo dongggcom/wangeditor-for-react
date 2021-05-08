@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:03:07
+ * @LastEditTime: 2021-05-08 11:10:09
 -->
 # wangeditor-for-react
 
@@ -61,3 +61,30 @@ import ReactWEditor from 'wangeditor-for-react';
 * [粘贴过滤](https://doc.wangeditor.com/pages/06-%E7%B2%98%E8%B4%B4%E8%BF%87%E6%BB%A4/)
 * [上传图片](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/)
 * [上传视频](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/)
+
+**使用Ref**
+
+通过 `Ref` 获取所有 API
+
+```jsx
+import React, { useRef } from 'react';
+import ReactWEditor from 'wangeditor-for-react';
+
+function App() {
+  let editorRef = useRef(null)
+  return (
+    <ReactWEditor
+      ref={editorRef}
+      onBlur={(html) => {
+        if (editorRef.current) {
+          console.log('ref', editorRef.current.editor.txt.append('追加内容'))
+        }
+      }}
+    />
+  );
+}
+
+export default App;
+```
+
+[常用API](https://doc.wangeditor.com/pages/08-%E5%B8%B8%E7%94%A8API/)
