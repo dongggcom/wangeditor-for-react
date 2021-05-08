@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-08 11:11:50
+ * @LastEditTime: 2021-05-08 11:35:10
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -95,6 +95,22 @@ export default class ReactWEditor extends React.PureComponent {
   }
 
   /**
+   * 销毁编辑器
+   */
+  destroy() {
+    if (!this.isCreated()) {
+      console.error('[ReactWEdtior Error]: editor has not created, don\'t destroy.')
+      return;
+    }
+    // 1. 销毁
+    this.editor.destroy();
+    this.editor = null;
+
+    // 2. 修改标识
+    this.destroyed()
+  }
+
+  /**
    * 配置 editor
    * @param {*} config 配置
    * @doc https://doc.wangeditor.com/
@@ -173,5 +189,6 @@ export default class ReactWEditor extends React.PureComponent {
 
   changeCreatedFlag = flag => this.hasCreated = flag;
   created = () => this.changeCreatedFlag(true);
+  destroyed = () => this.changeCreatedFlag(false);
   isCreated = () => this.hasCreated === true
 }

@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:19:25
+ * @LastEditTime: 2021-05-08 11:30:46
 -->
 # wangeditor-for-react
 
@@ -99,3 +99,21 @@ export default App;
 ```
 
 [常用API](https://doc.wangeditor.com/pages/08-%E5%B8%B8%E7%94%A8API/)
+
+**销毁编辑器**
+```jsx
+import React, { useRef } from 'react';
+import ReactWEditor from 'wangeditor-for-react';
+
+function App() {
+  let editorRef = useRef(null)
+  return (
+    <>
+    <ReactWEditor ref={editorRef} />
+    <a href="#" onClick={() => editorRef.current.destroy()}>click</a>
+    </>
+  );
+}
+
+export default App;
+```
