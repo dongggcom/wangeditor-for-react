@@ -2,8 +2,14 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-05-08 09:28:04
+ * @LastEditTime: 2021-05-09 12:42:55
 -->
+## 1.2.1 - 2021/05/09
+- feat: 多语言支持
+- feat: 增加销毁方法
+- feat: 支持 onlineVideoCallback 和 linkImgCallback 回调函数
+- doc: 修改了介绍
+
 ## 1.1.3 - 2021/05/08
 - fix: 兼容 v3 版本
 - feat: 容器支持内联样式与样式类
