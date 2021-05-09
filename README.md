@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-09 12:38:08
+ * @LastEditTime: 2021-05-09 21:30:30
 -->
 # wangeditor-for-react
 
@@ -19,9 +19,7 @@ npm install wangeditor-for-react
 **事件监听**
 ```jsx
 import ReactWEditor from 'wangeditor-for-react';
-import { Input } from 'antd'
 
-<Input onChange={e => this.setState({ value: e.target.value })} />
 <ReactWEditor
   defaultValue={'<h1>标题</h1>'}
   linkImgCallback={(src,alt,href) => {
