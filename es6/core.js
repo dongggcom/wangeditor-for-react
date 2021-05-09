@@ -2,13 +2,13 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-08 11:35:10
+ * @LastEditTime: 2021-05-09 12:36:36
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
 import createId from './utils/unique-id';
 import { isObject, isString } from './utils/isType';
-import { isEqualString } from './utils/helper';
+import { isEqualString, isEmpty, difference } from './utils/helper';
 import { replaceHTMLImgBlobURL } from './utils/htmlRnder';
 import ImgFile from './imgFile'
 
@@ -77,20 +77,41 @@ export default class ReactWEditor extends React.PureComponent {
   }
 
   // #Private
-  create() {
+  create(context = {}) {
     const { config, defaultValue, customConfig } = this.props;
     if (this.check()) {
       // 1. 根据 config 属性配置设置
       this.setConfig(config || customConfig)
 
-      // 2. 生成 editor
+      // 2. 扩展 edtior
+      this.extend(context)
+
+      // 3. 生成 editor
       this.editor.create();
 
-      // 3. 修改标识
+      // 4. 修改标识
       this.created()
 
-      // 4. 根据 defaultValue 设置内容
+      // 5. 根据 defaultValue 设置内容
       this.setContentByHTMLString(defaultValue)
+    }
+  }
+  
+  /**
+   * 通过 context 扩展 edtior 
+   * @param {object} context 待扩展的内容
+   * @param {array} customFilter 需要过滤的扩展字段
+   */
+   extend(
+    context = {}, 
+    customFilter = []
+  ) {
+    if (this.check()) {
+      // 1. 过滤数组
+      const filter = Object.keys(this.editor).concat(customFilter || [])
+
+      // 2. 向 editor 上扩展
+      difference(Object.keys(context), filter).forEach((key) => this.editor[key] = context[key])
     }
   }
 
@@ -118,6 +139,12 @@ export default class ReactWEditor extends React.PureComponent {
   setConfig(config) {
     if (config && isObject(config)) {
       this.editor.config = Object.assign(this.editor.config, config);
+    }
+
+    // 多语言处理
+    const { languages } = this.props;
+    if (languages && isObject(languages) &&!isEmpty(languages)) {
+    	this.editor.config.languages = Object.assign(this.editor.config.languages, languages)
     }
   }
 

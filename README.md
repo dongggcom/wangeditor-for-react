@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-08 11:46:51
+ * @LastEditTime: 2021-05-09 12:38:08
 -->
 # wangeditor-for-react
 
@@ -118,4 +118,47 @@ function App() {
 }
 
 export default App;
+```
+
+**多语言**
+
+首先需要安装语言包
+```bash
+npm i -S i18next
+```
+
+使用
+```jsx
+import { extend } from 'wangeditor-for-react';
+import i18next from 'i18next';
+
+const ReactWEditorOfLang = extend({ i18next })
+
+<ReactWEditorOfLang
+  config={{
+    lang: 'en',
+  }}
+/>
+```
+
+自定义语言
+
+```jsx
+import { extend } from 'wangeditor-for-react';
+import i18next from 'i18next';
+
+const ReactWEditorOfLang = extend({ i18next })
+
+<ReactWEditorOfLang
+  config={{
+    lang: 'japan',
+  }}
+  languages={{
+    japan: {
+      wangEditor: {
+        请输入正文: '本文を入力してください',
+      },
+    }
+  }}
+/>
 ```
