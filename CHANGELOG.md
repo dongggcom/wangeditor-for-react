@@ -2,9 +2,9 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-05-09 12:42:55
+ * @LastEditTime: 2021-05-11 18:47:16
 -->
-## 1.2.1 - 2021/05/09
+## 1.2.2 - 2021/05/11
 - feat: 多语言支持
 - feat: 增加销毁方法
 - feat: 支持 onlineVideoCallback 和 linkImgCallback 回调函数
