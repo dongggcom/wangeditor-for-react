@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel es6 -d lib"
+    "build": "babel es6 -d lib",
+    "publish" : "bash ./script/publish.sh"
   },
   "keywords": [
     "React",
