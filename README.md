@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-09 21:30:30
+ * @LastEditTime: 2021-05-16 01:15:57
 -->
 # wangeditor-for-react
 
@@ -160,3 +160,7 @@ const ReactWEditorOfLang = extend({ i18next })
   }}
 />
 ```
+## TODO
+
+* 支持 [scroll-to-head](https://www.wangeditor.com/doc/pages/08-%E5%B8%B8%E7%94%A8API/06-scroll-to-head.html)
+* 支持 [菜单和编辑区域分离](https://www.wangeditor.com/doc/pages/01-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/03-%E8%8F%9C%E5%8D%95%E5%92%8C%E7%BC%96%E8%BE%91%E5%8C%BA%E5%9F%9F%E5%88%86%E7%A6%BB.html)
