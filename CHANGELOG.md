@@ -2,8 +2,13 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-05-11 18:47:16
+ * @LastEditTime: 2021-05-15 19:55:17
 -->
+## 1.3.0 - 2021-05-15
+- perf: 更新 wangeditor 版本
+- chore: 自动发布脚本
+- 更新CHANGELOG
+
 ## 1.2.2 - 2021/05/11
 - feat: 多语言支持
 - feat: 增加销毁方法
