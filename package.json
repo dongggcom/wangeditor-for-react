@@ -1,6 +1,6 @@
 {
   "name": "wangeditor-for-react",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Wangeditor component for React.",
   "main": "lib/index.js",
   "scripts": {
