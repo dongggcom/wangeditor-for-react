@@ -3,7 +3,7 @@
  # @Author: donggg
  # @LastEditors: donggg
  # @Date: 2021-05-12 14:41:00
- # @LastEditTime: 2021-06-05 12:07:54
+ # @LastEditTime: 2021-06-05 12:12:26
 ### 
 
 # 1. 锁定分支
@@ -106,7 +106,7 @@ read -p "finish? (Yes|No)" is_continue
 if [ !$is_continue ] || [ $is_continue == "y" ] || [ $is_continue == "yes" ] || [ $is_continue == "Y" ] || [ $is_continue == "YES" ] || [ $is_continue == "Yes" ]
 then
   git add .
-  git commit -m "${version}"
+  git commit -m "${version} CHANGELOG"
   git push
 fi
 
