@@ -3,7 +3,7 @@
  # @Author: donggg
  # @LastEditors: donggg
  # @Date: 2021-05-12 14:41:00
- # @LastEditTime: 2021-05-12 16:38:34
+ # @LastEditTime: 2021-06-05 12:07:54
 ### 
 
 # 1. 锁定分支
@@ -12,8 +12,14 @@ git checkout main
 # 2. 打包
 npm run build
 
+echo ''
+echo '----------------------------------'
+echo '--------- build success! ---------'
+echo '----------------------------------'
+echo ''
+
 # 3. 更新版本号: enter the version(*.*.*): 
-enter_version(){
+enter_version() {
     default_version=$(node -e "const pkg=require('./package.json'); console.log(pkg.version);")
     read -p "Enter the version($default_version):" version
     
@@ -28,7 +34,13 @@ enter_version(){
 enter_version
 
 # 4. 发布
-publish_log=$(npm publish)
+npm publish
+
+echo ''
+echo '----------------------------------'
+echo '- publish finished and read log --'
+echo '----------------------------------'
+echo ''
 
 # 5. 输入需要合并的提交记录 enter the scope of commit: 
 commit_log() {
@@ -43,6 +55,8 @@ show_commit_scope() {
   scope=$1
   commit_log $scope
 
+  echo ''
+  echo '----------------------'
   read -p "Show more? (No|Yes)" more
 
   if [ ! $more ]
@@ -63,6 +77,7 @@ show_commit_scope 5
 # 6. 确认后生成 CHANGELOG
 create_change_log() {
 
+  echo ''
   read -p "Automatically fill CHANGELOG.md from commit-log? (No|Yes)" more
 
   if [ ! $more ]
@@ -76,6 +91,7 @@ create_change_log() {
     date=$(date "+%Y-%m-%d")
     changelog="## $version - ${date}" 
 
+    echo ''
     echo -e "${changelog}\n${log}"
   fi
 
@@ -83,6 +99,8 @@ create_change_log() {
 create_change_log
 
 # 7. 更新仓库
+echo ''
+echo '----------------'
 read -p "finish? (Yes|No)" is_continue
 
 if [ !$is_continue ] || [ $is_continue == "y" ] || [ $is_continue == "yes" ] || [ $is_continue == "Y" ] || [ $is_continue == "YES" ] || [ $is_continue == "Yes" ]
