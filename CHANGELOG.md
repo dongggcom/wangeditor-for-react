@@ -2,8 +2,11 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-05-15 19:55:17
+ * @LastEditTime: 2021-06-05 11:30:16
 -->
+## 1.4.0 - 2021-06-05
+- feat: 增加钩子方法
+
 ## 1.3.0 - 2021-05-15
 - perf: 更新 wangeditor 版本
 - chore: 自动发布脚本
