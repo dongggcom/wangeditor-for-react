@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-05-09 12:36:36
+ * @LastEditTime: 2021-06-05 11:19:11
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -51,23 +51,77 @@ export default class ReactWEditor extends React.PureComponent {
   }
 
   // #Private
+  __hook__run = (hooks = [], args = [], target = {}) => {
+    hooks.forEach((hook, index) => {
+      if (!hook) {
+        return;
+      }
+      
+      if (target[hook] && typeof target[hook] === 'function' && args[index]) {
+        target[hook].apply(target[hook], args[index])
+      } else if (/^(\w+\.\w+)+$/.test(hook) && args[index]) {
+        const path = hook.split('.')
+        const cache = [];
+        let fn = target;
+        path.forEach((d) => {
+          cache.push(fn);
+          fn = fn[d]
+        })
+        cache.push(fn);
+        if (typeof fn === 'function') {
+          fn.apply(cache[cache.length-2], args[index])
+        } else if(typeof args[index] === 'function') {
+          args[index].apply(args[index], cache)
+        }
+      }
+    })
+  }
+
+  // #Private
+  __before__instanced() {
+    const { globalHook = {} } = this.props;
+    const hooks = Object.keys(globalHook);
+    const args = Object.values(globalHook);
+
+    this.__hook__run(hooks, args, WEdtior);
+  }
+
+  // #Private
+  __after__instanced() {
+    if (!this.check()) {
+      return;
+    }
+    const { instanceHook = {} } = this.props;
+    const hooks = Object.keys(instanceHook);
+    const args = Object.values(instanceHook);
+
+    this.__hook__run(hooks, args, this.editor);
+  }
+
+  // #Protect
   init() {
     const elem = document.getElementById(`editor-${this.id}`);
     if (elem) {
+      // 0. 初始化前，调用全局的 hook
+      this.__before__instanced()
+
       // 1. 初始化
       this.editor = new WEdtior(`#editor-${this.id}`);
 
-      // 2. 根据属性配置默认设置
+      // 2. 初始化后，调用实例的 hook，支持相对路径，例如键值是 'menus.extend'
+      this.__after__instanced()
+
+      // 3. 根据属性配置默认设置
       this.setDefaultConfigByProps();
 
-      // 3. 根据默认设置更新设置
+      // 4. 根据默认设置更新设置
       this.setConfig(this.defaultConfig);
     } else {
       console.error('[ReactWEdtior Error]: dom is not found')
     }
   }
 
-  // #Private
+  // #Protect
   check() {
     if (this.editor) {
       return true;
@@ -76,7 +130,7 @@ export default class ReactWEditor extends React.PureComponent {
     return false;
   }
 
-  // #Private
+  // #Protect
   create(context = {}) {
     const { config, defaultValue, customConfig } = this.props;
     if (this.check()) {

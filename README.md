@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-05-16 01:15:57
+ * @LastEditTime: 2021-06-05 11:25:47
 -->
 # wangeditor-for-react
 
@@ -160,6 +160,71 @@ const ReactWEditorOfLang = extend({ i18next })
   }}
 />
 ```
+## 增加 hook
+分为全局钩子 `globalHook` 和实例钩子 `instanceHook`。
+
+`globalHook` 注册在构造函数上，即 `new E()` 中的 `E`。`instanceHook` 注册在实例后，`editor.create()` 执行前。
+
+钩子支持分割符，例如 `menus.extend` 相当于 `this.editor.menus.extend`。
+
+钩子有两种值，一种是数组，一种是函数。
+
+```jsx
+<ReactWEditor
+  instanceHook={{
+    // 使用数组时，通常 key 代表的钩子是一个方法，此处 menus.extend 是个方法，那么数组就是其参数。
+    'menus.extend': ['alertMenuKey', AlertMenu],
+    // 使用方法是，通常 key 代表的钩子是一个对象，可以利用方法来绑定。方法的形参第一位是当前实例的 editor，后面依次是 key 分割代表的对象。
+    'config.menus': function(editor, config, menus) {
+      config.menus = menus.concat("alertMenuKey")
+    }
+  }}
+/>
+```
+
+
+使用 `globalHook` 扩展菜单，`AlertMenu` 参考 [Button 菜单](https://www.wangeditor.com/doc/pages/11-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95%E8%8F%9C%E5%8D%95/02-Button%E8%8F%9C%E5%8D%95.html)。
+```jsx
+import React from 'react';
+import ReactWEditor from 'wangeditor-for-react';
+import AlertMenu from './AlertMenu';
+
+function App() {
+  return (
+    <ReactWEditor
+      globalHook={{
+         registerMenu: ['alertMenuKey', AlertMenu]
+      }}
+    />
+  );
+}
+
+export default App;
+```
+
+使用 `instanceHook` 扩展菜单。
+```jsx
+import React from 'react';
+import ReactWEditor from 'wangeditor-for-react';
+import AlertMenu from './AlertMenu';
+
+function App() {
+  return (
+    <ReactWEditor
+      instanceHook={{
+        'menus.extend': ['alertMenuKey', AlertMenu],
+        'config.menus': function(editor, config, menus) {
+          config.menus = menus.concat("alertMenuKey")
+        }
+      }}
+    />
+  );
+}
+
+export default App;
+```
+
+
 ## TODO
 
 * 支持 [scroll-to-head](https://www.wangeditor.com/doc/pages/08-%E5%B8%B8%E7%94%A8API/06-scroll-to-head.html)
