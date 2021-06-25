@@ -2,8 +2,12 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-06-05 11:30:16
+ * @LastEditTime: 2021-06-25 18:38:06
 -->
+## 1.4.1 - 2021-06-25
+- fix: 修复受控组件强制替换html内容
+- chore: 修改脚本
+
 ## 1.4.0 - 2021-06-05
 - feat: 增加钩子方法
 
