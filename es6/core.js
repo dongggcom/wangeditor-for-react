@@ -2,7 +2,7 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-01 19:02:53
- * @LastEditTime: 2021-06-05 11:19:11
+ * @LastEditTime: 2021-06-25 18:36:17
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -39,14 +39,6 @@ export default class ReactWEditor extends React.PureComponent {
   componentWillUnmount() {
     if (this.editor) {
       this.editor.destroy()
-    }
-  }
-
-  componentDidUpdate(nextProps) {
-    const { value } = nextProps;
-
-    if (!isEqualString(value, this.props.value)) {
-      this.setContentByHTMLString(this.props.value)
     }
   }
 
