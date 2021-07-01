@@ -73,7 +73,7 @@ import ReactWEditor from 'wangeditor-for-react';
 * [上传图片](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/)
 * [上传视频](https://doc.wangeditor.com/pages/07-%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91/)
 
-**使用Ref**
+**使用 Ref**
 
 通过 `Ref` 获取所有 API
 
@@ -98,7 +98,7 @@ function App() {
 export default App;
 ```
 
-[常用API](https://doc.wangeditor.com/pages/08-%E5%B8%B8%E7%94%A8API/)
+[常用 API](https://doc.wangeditor.com/pages/08-%E5%B8%B8%E7%94%A8API/)
 
 **销毁编辑器**
 ```jsx

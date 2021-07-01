@@ -19,7 +19,7 @@
 - fix: 设置 localBlobImg 修复无图片时的错误提醒
 
 ## 1.0.1 - 2021/04/27
-- feat: 增加Blob本地图片，并在类中提供处理函数 replaceHTMLImgBlobURL
+- feat: 增加 Blob 本地图片，并在类中提供处理函数 replaceHTMLImgBlobURL
 
 ```jsx
 import React from 'react';

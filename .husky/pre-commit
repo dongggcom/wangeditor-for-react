@@ -1,0 +1,10 @@
+###
+ # @Author: donggg
+ # @LastEditors: donggg
+ # @Date: 2021-07-01 11:36:43
+ # @LastEditTime: 2021-07-01 11:47:35
+### 
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
