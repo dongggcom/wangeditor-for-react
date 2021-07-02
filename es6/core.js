@@ -180,7 +180,7 @@ export default class ReactWEditor extends React.PureComponent {
   /**
    * 配置 editor
    * @param {*} config 配置
-   * @doc https://doc.wangeditor.com/
+   * @doc https://www.wangeditor.com/doc/
    */
   setConfig(config) {
     if (config && isObject(config)) {
