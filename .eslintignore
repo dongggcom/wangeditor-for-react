@@ -1,0 +1,4 @@
+lib
+.commitlintrc.js
+.eslintrc.js
+.prettierrc.js
