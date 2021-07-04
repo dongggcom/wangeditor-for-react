@@ -1,4 +1,5 @@
 lib
+dist
 .commitlintrc.js
 .eslintrc.js
 .prettierrc.js

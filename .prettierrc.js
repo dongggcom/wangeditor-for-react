@@ -2,7 +2,7 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-07-01 09:58:08
- * @LastEditTime: 2021-07-01 10:11:56
+ * @LastEditTime: 2021-07-04 10:20:55
  */
 module.exports =  {
   semi: true,
@@ -10,6 +10,7 @@ module.exports =  {
   useTabs: true,
   singleQuote: true,
   bracketSpacing: true,
-  printWidth: 120,
+  printWidth: 80,
   tabWidth: 2,
+  endOfLine: 'auto'
 };

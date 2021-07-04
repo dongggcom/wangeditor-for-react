@@ -98,7 +98,7 @@ function App() {
 export default App;
 ```
 
-[常用 API](https://doc.wangeditor.com/pages/08-%E5%B8%B8%E7%94%A8API/)
+[常用 API](https://www.wangeditor.com/doc/pages/08-%E5%B8%B8%E7%94%A8API/)
 
 **销毁编辑器**
 ```jsx
