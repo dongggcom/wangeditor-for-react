@@ -5,21 +5,16 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel es6 -d lib",
+    "build:es": "babel es6 -d lib",
+    "build": "tsc --build",
     "publish": "bash ./script/publish.sh"
   },
   "keywords": [
     "React",
     "wangeditor"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint --edit $1"
-    }
-  },
   "lint-staged": {
-    "*.ts": [
+    "*.ts?(x)": [
       "eslint --fix",
       "prettier --write"
     ],
@@ -37,18 +32,24 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.13.14",
-    "@babel/core": "^7.13.15",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
-    "@babel/preset-react": "^7.13.13",
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-angular": "^12.0.1",
-    "eslint": "^7.23.0",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@lint-md/cli": "^0.1.5",
+    "@lint-md/core": "^0.2.1",
+    "@types/node": "^15.12.5",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "commitizen": "^4.2.4",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "react": "^17.0.2",
