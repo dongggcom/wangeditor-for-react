@@ -2,9 +2,8 @@
  * @Author: dongmin
  * @LastEditors: donggg
  * @Date: 2021-04-02 18:36:57
- * @LastEditTime: 2021-07-04 10:21:03
+ * @LastEditTime: 2021-07-05 16:05:05
  */
-import WEdtior from 'wangeditor';
 
 /**
  * 简单判断两个值是否相当
@@ -12,14 +11,23 @@ import WEdtior from 'wangeditor';
  * @param {string} 值2
  * @return {boolean} 判断结果
  */
-export const isEqualString = (value1: string, value2: string): boolean => value1 === value2;
+export const isEqualString = (value1: string, value2: string): boolean =>
+	value1 === value2;
 
 /**
  * 判断是否为空
  * @param  {object|array|string|boolean|null|undefined|NaN} value 待判断值
  * @return {boolean} 判断结果
  */
-export const isEmpty = (value: Record<string, unknown> | unknown[] | string | number | null | undefined): boolean => {
+export const isEmpty = (
+	value:
+		| Record<string, unknown>
+		| unknown[]
+		| string
+		| number
+		| null
+		| undefined,
+): boolean => {
 	// null, undefined
 	if (value === null || value === undefined) {
 		return true;
@@ -65,7 +73,10 @@ export const difference = <T>(array: Array<T>, values: unknown[]): Array<T> => {
  * @param editor 目标对象
  * @returns 是否是该元素的键
  */
-export function isValidKey(key: string | number | symbol, object: Record<string, unknown>): key is keyof typeof object {
+export function isValidKey(
+	key: string | number | symbol,
+	object: Record<string, unknown>,
+): key is keyof typeof object {
 	return key in object;
 }
 

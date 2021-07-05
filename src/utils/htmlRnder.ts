@@ -6,10 +6,12 @@
  */
 
 // 是否有 html 标签
-const isHTML = (input: string): boolean => /<(\S*?) [^>]*>.*?<\/\1>|<.*?>/gm.test(input);
+const isHTML = (input: string): boolean =>
+	/<(\S*?) [^>]*>.*?<\/\1>|<.*?>/gm.test(input);
 
 // 是否有 img 标签
-const hasImgTag = (input: string): boolean => /<img.*?src=\\?"(.*?)\\?".*?\/?>/.test(input);
+const hasImgTag = (input: string): boolean =>
+	/<img.*?src=\\?"(.*?)\\?".*?\/?>/.test(input);
 
 /**
  * 根据 html 文本获取 src 地址
@@ -40,7 +42,8 @@ const getImgSrcByHTMLString = (input: string): Array<RegExpExecArray> => {
 export const replaceHTMLImgBlobURL = (
 	content: string,
 	files: Record<string, File>,
-	replaceCallback = (v: File | { toString: () => string }) => (v !== undefined ? v.toString() : v),
+	replaceCallback = (v: File | { toString: () => string }) =>
+		v !== undefined ? v.toString() : v,
 ): string => {
 	if (typeof content !== 'string') {
 		console.error('[Type Error]: content is not string');

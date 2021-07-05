@@ -2,13 +2,16 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-07-02 10:49:27
- * @LastEditTime: 2021-07-03 22:49:04
+ * @LastEditTime: 2021-07-05 16:04:57
  */
 import WEditor from 'wangeditor/src/editor';
 import { ConfigType } from 'wangeditor/src/config';
 import langConfig from 'wangeditor/src/config/lang';
 
-type hookType = Record<string, Array<unknown> | ((editor: typeof WEditor, ...args: unknown[]) => void)>;
+type hookType = Record<
+	string,
+	Array<unknown> | ((editor: typeof WEditor, ...args: unknown[]) => void)
+>;
 
 export type ReactWEProps = {
 	style?: StyleSheet;

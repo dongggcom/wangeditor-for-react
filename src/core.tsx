@@ -2,7 +2,7 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-07-02 10:23:15
- * @LastEditTime: 2021-07-04 10:51:45
+ * @LastEditTime: 2021-07-05 15:45:15
  */
 import React from 'react';
 import WEdtior from 'wangeditor';
@@ -16,7 +16,10 @@ interface IWEdtior extends WEdtior {
 	[key: string]: unknown;
 }
 
-export default class ReactWEditor extends React.PureComponent<ReactWEProps, Record<string, unknown>> {
+export default class ReactWEditor extends React.PureComponent<
+	ReactWEProps,
+	Record<string, unknown>
+> {
 	private readonly id = createId(8);
 	private hasCreated = false; // 是否执行 create 创建函数
 
@@ -42,9 +45,17 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 		}
 	}
 
-	private __hook__run = (hooks: string[] = [], args: Array<unknown> = [], target: WEdtior | typeof WEdtior) => {
+	private __hook__run = (
+		hooks: string[] = [],
+		args: Array<unknown> = [],
+		target: WEdtior | typeof WEdtior,
+	) => {
 		hooks.forEach((hook, index) => {
-			if (hook in target && typeof (target as IWEdtior)[hook] === 'function' && args[index]) {
+			if (
+				hook in target &&
+				typeof (target as IWEdtior)[hook] === 'function' &&
+				args[index]
+			) {
 				(target as any)[hook].apply((target as any)[hook], args[index]);
 			} else if (/^(\w+\.\w+)+$/.test(hook) && args[index]) {
 				const path = hook.split('.');
@@ -58,7 +69,10 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 				if (typeof fn === 'function') {
 					fn.apply(cache[cache.length - 2], args[index]);
 				} else if (typeof args[index] === 'function') {
-					(args[index] as (...args: unknown[]) => void).apply(args[index], cache);
+					(args[index] as (...args: unknown[]) => void).apply(
+						args[index],
+						cache,
+					);
 				}
 			}
 		});
@@ -138,13 +152,20 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 	 * @param {object} context 待扩展的内容
 	 * @param {array} customFilter 需要过滤的扩展字段
 	 */
-	extend(context: Record<string, unknown> = {}, customFilter: string[] = []): void {
+	extend(
+		context: Record<string, unknown> = {},
+		customFilter: string[] = [],
+	): void {
 		if (this.check()) {
 			// 1. 过滤数组
-			const filter = Object.keys(this.editor as WEdtior).concat(customFilter || []);
+			const filter = Object.keys(this.editor as WEdtior).concat(
+				customFilter || [],
+			);
 
 			// 2. 向 editor 上扩展
-			difference(Object.keys(context), filter).forEach((key) => ((this.editor as IWEdtior)[key] = context[key]));
+			difference(Object.keys(context), filter).forEach(
+				(key) => ((this.editor as IWEdtior)[key] = context[key]),
+			);
 		}
 	}
 
@@ -153,7 +174,9 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 	 */
 	destroy(): void {
 		if (!this.isCreated()) {
-			console.error("[ReactWEdtior Error]: editor has not created, don't destroy.");
+			console.error(
+				"[ReactWEdtior Error]: editor has not created, don't destroy.",
+			);
 			return;
 		}
 		// 1. 销毁
@@ -171,13 +194,19 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 	 */
 	setConfig(config: Record<string, unknown> | undefined): void {
 		if (config) {
-			(this.editor as WEdtior).config = Object.assign((this.editor as WEdtior).config, config);
+			(this.editor as WEdtior).config = Object.assign(
+				(this.editor as WEdtior).config,
+				config,
+			);
 		}
 
 		// 多语言处理
 		const { languages } = this.props;
 		if (languages && !isEmpty(languages)) {
-			(this.editor as WEdtior).config.languages = Object.assign((this.editor as WEdtior).config.languages, languages);
+			(this.editor as WEdtior).config.languages = Object.assign(
+				(this.editor as WEdtior).config.languages,
+				languages,
+			);
 		}
 	}
 
@@ -185,18 +214,30 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 	 * 根据属性，配置默认设置
 	 */
 	setDefaultConfigByProps = (): void => {
-		const { placeholder, onChange, onFocus, onBlur, linkImgCallback, onlineVideoCallback, localBlobImg } = this.props;
+		const {
+			placeholder,
+			onChange,
+			onFocus,
+			onBlur,
+			linkImgCallback,
+			onlineVideoCallback,
+			localBlobImg,
+		} = this.props;
 
 		if (placeholder) this.defaultConfig.placeholder = placeholder;
 		if (onChange) this.defaultConfig.onchange = onChange;
 		if (onFocus) this.defaultConfig.onfocus = onFocus;
 		if (onBlur) this.defaultConfig.onblur = onBlur;
 		if (linkImgCallback) this.defaultConfig.linkImgCallback = linkImgCallback;
-		if (onlineVideoCallback) this.defaultConfig.onlineVideoCallback = onlineVideoCallback;
+		if (onlineVideoCallback)
+			this.defaultConfig.onlineVideoCallback = onlineVideoCallback;
 
 		// 图片替换为本地Blob伪URL
 		if (localBlobImg) {
-			this.defaultConfig.customUploadImg = (resultFiles: File[], insertImgFn: (...arg: unknown[]) => void): void => {
+			this.defaultConfig.customUploadImg = (
+				resultFiles: File[],
+				insertImgFn: (...arg: unknown[]) => void,
+			): void => {
 				resultFiles.forEach((file: File) => {
 					const url = URL.createObjectURL(file);
 					this.imgFile.saveImgFiles(url, file);
@@ -230,12 +271,21 @@ export default class ReactWEditor extends React.PureComponent<ReactWEProps, Reco
 	 * @param {function} callback 替换过程中的回调函数
 	 * @returns 替换后的 html 文本
 	 */
-	replaceHTMLImgBlobURL(html: string, callback: (v: File | { toString: () => string }) => string): string {
+	replaceHTMLImgBlobURL(
+		html: string,
+		callback: (v: File | { toString: () => string }) => string,
+	): string {
 		return replaceHTMLImgBlobURL(html, this.imgFile.getAllImgFiles(), callback);
 	}
 	render(): React.ReactElement {
 		const { style, className } = this.props;
-		return <div style={style as React.CSSProperties} className={className} id={`editor-${this.id}`} />;
+		return (
+			<div
+				style={style as React.CSSProperties}
+				className={className}
+				id={`editor-${this.id}`}
+			/>
+		);
 	}
 
 	changeCreatedFlag = (flag: boolean): boolean => (this.hasCreated = flag);

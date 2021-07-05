@@ -2,7 +2,7 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 11:57:19
- * @LastEditTime: 2021-07-03 19:03:52
+ * @LastEditTime: 2021-07-05 16:04:41
  */
 
 export default class ImgFile {
@@ -31,7 +31,8 @@ export default class ImgFile {
 	 * @param {*} defaultValue 当文件未查询到时，默认文件
 	 * @returns 返回 File 文件，或者 defaultValue
 	 */
-	getImgFile = <T>(name: string, defaultValue: T): File | T => this.store[name] || defaultValue;
+	getImgFile = <T>(name: string, defaultValue: T): File | T =>
+		this.store[name] || defaultValue;
 
 	/**
 	 * 返回存储的图片对象

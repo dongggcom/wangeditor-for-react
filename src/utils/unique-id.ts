@@ -15,7 +15,8 @@
  * uuid(8, 16) // "098F4D35"
  */
 export default function uuid(len: number, radix?: number): string {
-	const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+	const chars =
+		'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
 	const uuid: string[] = [];
 	let i;
 	radix = radix || chars.length;
