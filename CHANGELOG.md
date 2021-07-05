@@ -2,10 +2,18 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-06-25 18:38:06
+ * @LastEditTime: 2021-07-05 16:48:11
 -->
+
+## 1.5.0 - 2021-07-05
+- chore: 删除 babel 编译及相关依赖
+- refactor: 重构为 ts
+- feat: 升级 wangeditor 版本
+- doc: 修改官方文档最新地址
+- chore: 增加 lint 规范
+
 ## 1.4.1 - 2021-06-25
-- fix: 修复受控组件强制替换html内容
+- fix: 修复受控组件强制替换 html 内容
 - chore: 修改脚本
 
 ## 1.4.0 - 2021-06-05
@@ -14,7 +22,7 @@
 ## 1.3.0 - 2021-05-15
 - perf: 更新 wangeditor 版本
 - chore: 自动发布脚本
-- 更新CHANGELOG
+- 更新 CHANGELOG
 
 ## 1.2.2 - 2021/05/11
 - feat: 多语言支持
