@@ -2,7 +2,7 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-06-24 09:43:38
- * @LastEditTime: 2021-07-05 16:04:32
+ * @LastEditTime: 2021-08-08 23:52:16
  */
 {
   "compilerOptions": {
@@ -20,6 +20,7 @@
     "noImplicitAny": true,
     "skipLibCheck": true,
     "removeComments": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
