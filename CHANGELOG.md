@@ -2,8 +2,10 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-07-05 16:48:11
+ * @LastEditTime: 2021-08-08 23:57:02
 -->
+## 1.5.1 - 2021-08-08
+- chore: 增加类型声明文件
 
 ## 1.5.0 - 2021-07-05
 - chore: 删除 babel 编译及相关依赖
