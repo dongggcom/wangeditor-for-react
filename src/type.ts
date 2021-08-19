@@ -16,7 +16,7 @@ type hookType = Record<
 export type ReactWEProps = {
 	style?: StyleSheet;
 	className?: string;
-	config?: ConfigType;
+	config?: Partial<ConfigType>;
 
 	defaultValue?: string;
 	localBlobImg?: boolean;
