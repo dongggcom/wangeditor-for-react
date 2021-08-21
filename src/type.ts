@@ -4,9 +4,9 @@
  * @Date: 2021-07-02 10:49:27
  * @LastEditTime: 2021-07-05 16:04:57
  */
-import WEditor from 'wangeditor/src/editor';
-import { ConfigType } from 'wangeditor/src/config';
-import langConfig from 'wangeditor/src/config/lang';
+import { ConfigType } from 'wangeditor/dist/config';
+import langConfig from 'wangeditor/dist/config/lang';
+import WEditor from 'wangeditor/dist/editor';
 
 type hookType = Record<
 	string,

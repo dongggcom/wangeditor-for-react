@@ -1,8 +1,9 @@
 {
   "name": "wangeditor-for-react",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Wangeditor component for React.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:es": "babel es6 -d lib",
