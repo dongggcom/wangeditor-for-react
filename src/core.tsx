@@ -7,7 +7,7 @@
 import React from 'react';
 import WEdtior from 'wangeditor';
 import createId from './utils/unique-id';
-import { isEmpty, difference } from './utils/helper';
+import { isEmpty, difference, isEqualString } from './utils/helper';
 import { ReactWEProps } from './type';
 import { replaceHTMLImgBlobURL } from './utils/htmlRnder';
 import ImgFile from './imgFile';
@@ -30,6 +30,13 @@ export default class ReactWEditor extends React.PureComponent<
 
 	public editor: WEdtior | null = null;
 
+	componentDidUpdate(nextProps: ReactWEProps) {
+		const { value } = nextProps;
+
+		if (!isEqualString(value as string, this.props.value as string)) {
+			this.setContentByHTMLString(this.props.value);
+		}
+	}
 	componentDidMount(): void {
 		try {
 			this.init();
