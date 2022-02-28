@@ -55,7 +55,9 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "react": "^17.0.2",
     "wangeditor": "^4.7.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   }
 }

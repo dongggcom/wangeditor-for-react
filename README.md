@@ -1,8 +1,8 @@
 <!--
  * @Author: dongmin
- * @LastEditors: donggg
+ * @LastEditors: dongmin03
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-07-02 10:49:07
+ * @LastEditTime: 2022-03-01 00:26:57
 -->
 # wangeditor-for-react
 
@@ -11,7 +11,7 @@
 ## 安装
 
 ```bash
-npm install wangeditor-for-react
+npm install wangeditor-for-react react
 ```
 
 ## 使用
