@@ -46,7 +46,7 @@
     "@lint-md/cli": "^0.1.5",
     "@lint-md/core": "^0.2.1",
     "@types/node": "^15.12.5",
-    "@types/react": "^17.0.11",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
@@ -61,7 +61,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "wangeditor": "^4.7.5"
+    "wangeditor": "^4.7.12"
   },
   "peerDependencies": {
     "react": "^17.0.2"

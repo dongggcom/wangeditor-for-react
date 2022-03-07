@@ -2,17 +2,17 @@
  * @Author: donggg
  * @LastEditors: donggg
  * @Date: 2021-07-02 10:23:15
- * @LastEditTime: 2021-07-05 15:45:15
+ * @LastEditTime: 2022-03-07 17:28:40
  */
 import React from 'react';
-import WEdtior from 'wangeditor';
+import WEditor from 'wangeditor';
 import createId from './utils/unique-id';
 import { isEmpty, difference, isEqualString } from './utils/helper';
 import { ReactWEProps } from './type';
-import { replaceHTMLImgBlobURL } from './utils/htmlRnder';
+import { replaceHTMLImgBlobURL } from './utils/htmlRender';
 import ImgFile from './imgFile';
 
-interface IWEdtior extends WEdtior {
+interface IWEditor extends WEditor {
 	[key: string]: unknown;
 }
 
@@ -28,7 +28,7 @@ export default class ReactWEditor extends React.PureComponent<
 		zIndex: 1,
 	};
 
-	public editor: WEdtior | null = null;
+	public editor: WEditor | null = null;
 
 	componentDidUpdate(nextProps: ReactWEProps) {
 		const { value } = nextProps;
@@ -42,7 +42,7 @@ export default class ReactWEditor extends React.PureComponent<
 			this.init();
 			this.create();
 		} catch (e) {
-			console.error(`[ReactWEdtior Error]: ${e}`);
+			console.error(`[ReactWEditor Error]: ${e}`);
 		}
 	}
 
@@ -55,12 +55,12 @@ export default class ReactWEditor extends React.PureComponent<
 	private __hook__run = (
 		hooks: string[] = [],
 		args: Array<unknown> = [],
-		target: WEdtior | typeof WEdtior,
+		target: WEditor | typeof WEditor,
 	) => {
 		hooks.forEach((hook, index) => {
 			if (
 				hook in target &&
-				typeof (target as IWEdtior)[hook] === 'function' &&
+				typeof (target as IWEditor)[hook] === 'function' &&
 				args[index]
 			) {
 				(target as any)[hook].apply((target as any)[hook], args[index]);
@@ -90,7 +90,7 @@ export default class ReactWEditor extends React.PureComponent<
 		const hooks = Object.keys(globalHook);
 		const args: unknown[] = Object.values(globalHook);
 
-		this.__hook__run(hooks, args, WEdtior);
+		this.__hook__run(hooks, args, WEditor);
 	}
 
 	private __after__instanced() {
@@ -101,7 +101,7 @@ export default class ReactWEditor extends React.PureComponent<
 		const hooks = Object.keys(instanceHook);
 		const args = Object.values(instanceHook);
 
-		this.__hook__run(hooks, args, this.editor as WEdtior);
+		this.__hook__run(hooks, args, this.editor as WEditor);
 	}
 
 	protected init(): void {
@@ -111,7 +111,7 @@ export default class ReactWEditor extends React.PureComponent<
 			this.__before__instanced();
 
 			// 1. 初始化
-			this.editor = new WEdtior(`#editor-${this.id}`);
+			this.editor = new WEditor(`#editor-${this.id}`);
 
 			// 2. 初始化后，调用实例的 hook，支持相对路径，例如键值是 'menus.extend'
 			this.__after__instanced();
@@ -122,7 +122,7 @@ export default class ReactWEditor extends React.PureComponent<
 			// 4. 根据默认设置更新设置
 			this.setConfig(this.defaultConfig);
 		} else {
-			console.error('[ReactWEdtior Error]: dom is not found');
+			console.error('[ReactWEditor Error]: dom is not found');
 		}
 	}
 
@@ -130,7 +130,7 @@ export default class ReactWEditor extends React.PureComponent<
 		if (this.editor) {
 			return true;
 		}
-		console.error('[ReactWEdtior Error]: editor not found');
+		console.error('[ReactWEditor Error]: editor not found');
 		return false;
 	}
 
@@ -144,7 +144,7 @@ export default class ReactWEditor extends React.PureComponent<
 			this.extend(context);
 
 			// 3. 生成 editor
-			(this.editor as WEdtior).create();
+			(this.editor as WEditor).create();
 
 			// 4. 修改标识
 			this.created();
@@ -165,13 +165,13 @@ export default class ReactWEditor extends React.PureComponent<
 	): void {
 		if (this.check()) {
 			// 1. 过滤数组
-			const filter = Object.keys(this.editor as WEdtior).concat(
+			const filter = Object.keys(this.editor as WEditor).concat(
 				customFilter || [],
 			);
 
 			// 2. 向 editor 上扩展
 			difference(Object.keys(context), filter).forEach(
-				(key) => ((this.editor as IWEdtior)[key] = context[key]),
+				(key) => ((this.editor as IWEditor)[key] = context[key]),
 			);
 		}
 	}
@@ -182,12 +182,12 @@ export default class ReactWEditor extends React.PureComponent<
 	destroy(): void {
 		if (!this.isCreated()) {
 			console.error(
-				"[ReactWEdtior Error]: editor has not created, don't destroy.",
+				"[ReactWEditor Error]: editor has not created, don't destroy.",
 			);
 			return;
 		}
 		// 1. 销毁
-		(this.editor as WEdtior).destroy();
+		(this.editor as WEditor).destroy();
 		this.editor = null;
 
 		// 2. 修改标识
@@ -201,8 +201,8 @@ export default class ReactWEditor extends React.PureComponent<
 	 */
 	setConfig(config: Record<string, unknown> | undefined): void {
 		if (config) {
-			(this.editor as WEdtior).config = Object.assign(
-				(this.editor as WEdtior).config,
+			(this.editor as WEditor).config = Object.assign(
+				(this.editor as WEditor).config,
 				config,
 			);
 		}
@@ -210,8 +210,8 @@ export default class ReactWEditor extends React.PureComponent<
 		// 多语言处理
 		const { languages } = this.props;
 		if (languages && !isEmpty(languages)) {
-			(this.editor as WEdtior).config.languages = Object.assign(
-				(this.editor as WEdtior).config.languages,
+			(this.editor as WEditor).config.languages = Object.assign(
+				(this.editor as WEditor).config.languages,
 				languages,
 			);
 		}
@@ -260,14 +260,14 @@ export default class ReactWEditor extends React.PureComponent<
 	 */
 	setContentByHTMLString(html: string | undefined): void {
 		if (!this.isCreated()) {
-			console.error('[ReactWEdtior Error]: editor has not created');
+			console.error('[ReactWEditor Error]: editor has not created');
 		}
 
 		if (this.check()) {
 			try {
-				(this.editor as WEdtior).txt.html(html);
+				(this.editor as WEditor).txt.html(html);
 			} catch (e) {
-				console.error(`[ReactWEdtior Error]: ${e}`);
+				console.error(`[ReactWEditor Error]: ${e}`);
 			}
 		}
 	}
