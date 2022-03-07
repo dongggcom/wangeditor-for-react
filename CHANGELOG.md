@@ -1,9 +1,14 @@
 <!--
  * @Author: donggg
- * @LastEditors: donggg
+ * @LastEditors: dongmin03
  * @Date: 2021-04-27 19:13:31
- * @LastEditTime: 2021-08-08 23:57:02
+ * @LastEditTime: 2022-03-07 17:36:51
 -->
+## 1.5.6 - 2022-03-07
+- chore: 更新 wangeditor 版本
+- fix: 包的完整
+- chore: react 依赖调整 (#23)
+
 ## 1.5.3 - 2021-08-23
 - fix: 修复类型应用问题
 
