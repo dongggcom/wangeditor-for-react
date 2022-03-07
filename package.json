@@ -25,6 +25,12 @@
       "lint-md --fix"
     ]
   },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+],
   "author": "hi!dong",
   "repository": {
     "type": "git",
