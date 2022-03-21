@@ -2,9 +2,13 @@
  * @Author: dongmin
  * @LastEditors: dongmin03
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2022-03-01 00:26:57
+ * @LastEditTime: 2022-03-21 17:06:05
 -->
 # wangeditor-for-react
+
+[![version](https://img.shields.io/npm/v/wangeditor-for-react.svg?style=flat&color=39AEA9)](https://www.npmjs.com/package/wangeditor-for-react)
+[![download](https://img.shields.io/npm/dm/wangeditor-for-react.svg?style=flat&color=F68989)](https://www.npmjs.com/package/wangeditor-for-react)
+[![license](https://img.shields.io/npm/l/wangeditor-for-react.svg?style=flat&color=5B7DB1)](https://www.npmjs.com/package/wangeditor-for-react)
 
 项目来源：[wangEditor](https://github.com/wangeditor-team/wangEditor/)
 
