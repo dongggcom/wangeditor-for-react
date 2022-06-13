@@ -4,11 +4,11 @@
  * @Date: 2021-07-04 18:55:30
  * @LastEditTime: 2021-07-04 18:59:17
  */
-import ReactWEdtiorCore from './core';
+import ReactWEditorCore from './core';
 import { ReactWEProps } from './type';
 
 export default function extend(context: Record<string, unknown>): any {
-	return class Component extends ReactWEdtiorCore {
+	return class Component extends ReactWEditorCore {
 		constructor(props: ReactWEProps) {
 			super(props);
 		}
@@ -18,7 +18,7 @@ export default function extend(context: Record<string, unknown>): any {
 				this.init();
 				this.create(context);
 			} catch (e) {
-				console.error(`[ReactWEdtior Error]: ${e}`);
+				console.error(`[ReactWEditor Error]: ${e}`);
 			}
 		}
 	};

@@ -1,17 +1,21 @@
 <!--
  * @Author: dongmin
- * @LastEditors: donggg
+ * @LastEditors: dongmin03
  * @Date: 2021-04-01 15:24:50
- * @LastEditTime: 2021-07-02 10:49:07
+ * @LastEditTime: 2022-03-21 17:06:05
 -->
 # wangeditor-for-react
+
+[![version](https://img.shields.io/npm/v/wangeditor-for-react.svg?style=flat&color=39AEA9)](https://www.npmjs.com/package/wangeditor-for-react)
+[![download](https://img.shields.io/npm/dm/wangeditor-for-react.svg?style=flat&color=F68989)](https://www.npmjs.com/package/wangeditor-for-react)
+[![license](https://img.shields.io/npm/l/wangeditor-for-react.svg?style=flat&color=5B7DB1)](https://www.npmjs.com/package/wangeditor-for-react)
 
 项目来源：[wangEditor](https://github.com/wangeditor-team/wangEditor/)
 
 ## 安装
 
 ```bash
-npm install wangeditor-for-react
+npm install wangeditor-for-react react
 ```
 
 ## 使用
